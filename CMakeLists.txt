@@ -17,8 +17,7 @@ add_library(imgui STATIC
     ${EXTERNAL_DIR}/imgui/imgui_tables.cpp
     ${EXTERNAL_DIR}/imgui/imgui_widgets.cpp
     ${EXTERNAL_DIR}/imgui/backends/imgui_impl_glfw.cpp
-    ${EXTERNAL_DIR}/imgui/backends/imgui_impl_opengl3.cpp
- "src/Components/SwitchPanel/SwitchPanel.h" "src/Components/SwitchPanel/SwitchPanel.cpp")
+    ${EXTERNAL_DIR}/imgui/backends/imgui_impl_opengl3.cpp)
 
 target_include_directories(imgui PUBLIC
     ${EXTERNAL_DIR}/imgui
@@ -34,8 +33,6 @@ file(GLOB_RECURSE PROJECT_SOURCES
 )
 
 add_executable(6502Emulator ${PROJECT_SOURCES} 
-    "src/Assembler/Assembler.h"
-    "src/Assembler/Assembler.cpp"
     "src/Util/ColorUtils.cpp"
     "src/Util/RandomUtil.h"
     "src/Util/RandomUtil.cpp"
@@ -48,8 +45,6 @@ add_executable(6502Emulator ${PROJECT_SOURCES}
     "src/Components/HEXDisplay/HEXDisplay.cpp"
     "src/Components/LEDs/LEDs.h"
     "src/Components/LEDs/LEDs.cpp"
-    "src/Util/ProgramUtil.h"
-    "src/Util/ProgramUtil.cpp"
     "src/Components/SwitchPanel/SwitchPanel.h"
     "src/Components/SwitchPanel/SwitchPanel.cpp"
 )
