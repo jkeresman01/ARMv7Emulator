@@ -4,7 +4,6 @@
 #include <vector>
 
 #include "../Util/ColorsUtil.h"
-#include "../Util/ProgramUtil.h"
 #include "../Util/RandomUtil.h"
 
 namespace emulator6502
@@ -13,7 +12,6 @@ namespace emulator6502
 void Emulator6502::Init()
 {
     InitComponents();
-    Reset();
     glfwInit();
     InitWindow();
     glfwMakeContextCurrent(m_Window);
@@ -25,7 +23,7 @@ void Emulator6502::Init()
 void Emulator6502::InitComponents()
 {
     Random::Init();
-    m_CPU->Init();
+    //m_CPU->Init();
     m_AsmEditor->Init();
     m_MemoryLayout->Init();
     m_PixelDisplay->Init();
@@ -70,12 +68,6 @@ void Emulator6502::RenderCPUStatusWindow()
 {
     ImGui::Begin("CPU Registers");
 
-    ImGui::Text("A  = 0x%02X", m_CPU->GetAccumulator());
-    ImGui::Text("X  = 0x%02X", m_CPU->GetRegisterX());
-    ImGui::Text("Y  = 0x%02X", m_CPU->GetRegisterY());
-    ImGui::Text("SP = 0x%02X", m_CPU->GetStackPointer());
-    ImGui::Text("PC = 0x%04X", m_CPU->GetProgramCounter());
-
     // TODO: Add status flags
 
     ImGui::End();
@@ -97,14 +89,13 @@ void Emulator6502::RenderControlButtonsWindow()
 
     if (ImGui::Button("Assemble"))
     {
-        Reset();
-        LoadProgramIntoMemory();
+        // TODO
     }
 
     ImGui::SameLine();
     if (ImGui::Button("Disassemble"))
     {
-        OpenDissasemblyPopup();
+        //OpenDissasemblyPopup();
     }
 
     ImGui::SameLine();
@@ -116,53 +107,25 @@ void Emulator6502::RenderControlButtonsWindow()
     ImGui::SameLine();
     if (ImGui::Button("Reset"))
     {
-        Reset();
+        // TODO
     }
 
     ImGui::SameLine();
     if (ImGui::Button("Step"))
     {
-        m_CPU->Step();
+        //m_CPU->Step();
     }
 
     ImGui::End();
 }
 
-void Emulator6502::RenderDissasemblyPopup()
-{
-    if (m_ShowDisassemblyPopup)
-    {
-        ImGui::OpenPopup("Disassembly");
-        m_ShowDisassemblyPopup = false;
-    }
-
-    if (ImGui::BeginPopupModal("Disassembly", nullptr, ImGuiWindowFlags_AlwaysAutoResize))
-    {
-        for (const auto &line : m_Dissasembly)
-        {
-            ImGui::Text("%s", line.c_str());
-        }
-
-        if (ImGui::Button("Close"))
-        {
-            ImGui::CloseCurrentPopup();
-        }
-
-        ImGui::EndPopup();
-    }
-}
-
 void Emulator6502::OpenDissasemblyPopup()
 {
-    const std::vector<Byte> &machineCode = ProgramUtil::ReadProgramFromMemory();
-    m_Dissasembly = m_Disssembler->Disassmble(machineCode);
-    m_ShowDisassemblyPopup = true;
+
 }
 
 void Emulator6502::LoadProgramIntoMemory()
 {
-    const std::string &asmCode = m_AsmEditor->GetText();
-    ProgramUtil::LoadProgramIntoMemory(asmCode, m_Assembler);
 }
 
 void Emulator6502::Shutdown()
@@ -183,12 +146,6 @@ void Emulator6502::DestroyComponents()
     m_HEXDisplay->Destroy();
     m_LEDs->Destroy();
     m_SwitchPanel->Destroy();
-}
-
-void Emulator6502::Reset()
-{
-    Memory::Reset();
-    m_CPU->Reset();
 }
 
 } // namespace emulator6502
