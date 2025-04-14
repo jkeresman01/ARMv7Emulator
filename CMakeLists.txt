@@ -17,7 +17,7 @@ add_library(imgui STATIC
     ${EXTERNAL_DIR}/imgui/imgui_tables.cpp
     ${EXTERNAL_DIR}/imgui/imgui_widgets.cpp
     ${EXTERNAL_DIR}/imgui/backends/imgui_impl_glfw.cpp
-    ${EXTERNAL_DIR}/imgui/backends/imgui_impl_opengl3.cpp)
+    ${EXTERNAL_DIR}/imgui/backends/imgui_impl_opengl3.cpp "src/Main.cpp")
 
 target_include_directories(imgui PUBLIC
     ${EXTERNAL_DIR}/imgui
@@ -47,7 +47,7 @@ add_executable(6502Emulator ${PROJECT_SOURCES}
     "src/Components/LEDs/LEDs.cpp"
     "src/Components/SwitchPanel/SwitchPanel.h"
     "src/Components/SwitchPanel/SwitchPanel.cpp"
-)
+ "src/Main.cpp")
 
 target_include_directories(6502Emulator PRIVATE ${SRC_DIR})
 target_include_directories(6502Emulator PRIVATE ${EXTERNAL_DIR}/imgui)

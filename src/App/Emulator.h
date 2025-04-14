@@ -9,18 +9,14 @@
 #include <iostream>
 #include <memory>
 
-#include "../Assembler/Assembler.h"
 #include "../Components/Editor/Editor.h"
 #include "../Components/HEXDisplay/HEXDisplay.h"
 #include "../Components/LEDs/LEDs.h"
 #include "../Components/MemoryLayout/MemoryLayout.h"
 #include "../Components/PixelDisplay/PixelDisplay.h"
 #include "../Components/SwitchPanel/SwitchPanel.h"
-#include "../Core/CPU6502.h"
-#include "../Core/Memory.h"
-#include "../Disassembler/Dissasembler.h"
 
-namespace emulator6502
+namespace armv7emulator
 {
 
 using Byte = uint8_t;
