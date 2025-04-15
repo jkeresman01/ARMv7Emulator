@@ -23,7 +23,7 @@ void Emulator6502::Init()
 void Emulator6502::InitComponents()
 {
     Random::Init();
-    //m_CPU->Init();
+    // m_CPU->Init();
     m_AsmEditor->Init();
     m_MemoryLayout->Init();
     m_PixelDisplay->Init();
@@ -95,7 +95,7 @@ void Emulator6502::RenderControlButtonsWindow()
     ImGui::SameLine();
     if (ImGui::Button("Disassemble"))
     {
-        //OpenDissasemblyPopup();
+        // OpenDissasemblyPopup();
     }
 
     ImGui::SameLine();
@@ -113,20 +113,15 @@ void Emulator6502::RenderControlButtonsWindow()
     ImGui::SameLine();
     if (ImGui::Button("Step"))
     {
-        //m_CPU->Step();
+        // m_CPU->Step();
     }
 
     ImGui::End();
 }
 
-void Emulator6502::OpenDissasemblyPopup()
-{
+void Emulator6502::OpenDissasemblyPopup() {}
 
-}
-
-void Emulator6502::LoadProgramIntoMemory()
-{
-}
+void Emulator6502::LoadProgramIntoMemory() {}
 
 void Emulator6502::Shutdown()
 {

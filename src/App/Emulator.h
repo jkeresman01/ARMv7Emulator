@@ -68,4 +68,4 @@ class Emulator6502
     std::vector<std::string> m_Dissasembly;
     bool m_ShowDisassemblyPopup = false;
 };
-} // namespace emulator6502
+} // namespace armv7emulator

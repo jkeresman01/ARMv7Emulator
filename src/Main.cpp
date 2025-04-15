@@ -1,6 +1,6 @@
 #include "App/Emulator.h"
 
-int main() 
+int main()
 {
     armv7emulator::EmulatorARMv7 emultorARMv7;
 

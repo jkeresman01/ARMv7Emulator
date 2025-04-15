@@ -41,9 +41,9 @@ void HEXDisplay::Render() noexcept
 
     for (int i = 0; i < NUM_DIGITS; ++i)
     {
-        //Byte value = Memory::Read(BASE_ADDR + i);
-       /* ImVec2 pos = ImVec2(start.x + i * (size + spacing), start.y);
-        DrawSevenSegmentDigit(draw, pos, size, value);*/
+        // Byte value = Memory::Read(BASE_ADDR + i);
+        /* ImVec2 pos = ImVec2(start.x + i * (size + spacing), start.y);
+         DrawSevenSegmentDigit(draw, pos, size, value);*/
     }
 
     ImGui::Dummy(ImVec2(NUM_DIGITS * (size + spacing), size + 30));
